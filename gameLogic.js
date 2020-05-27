@@ -11,26 +11,6 @@ window.onload = function() {
     setInterval(draw, 1000/ frameRate); 
 };
 
-function keyDownEvent(e){
-    switch (e.keyCode){
-    case 37:
-        nextX = -1;
-        nextY = 0;
-        break;
-    case 38:
-        nextX = 0;
-        nextY = -1;
-        break;
-    case 39:
-        nextX = 1;
-        nextY = 0;
-        break;
-    case 40:
-        nextX = 0;
-        nextY = 1;
-        break;    
-    }
-}
 
 // Snake 
 var defaultTailSize = 3;
@@ -110,4 +90,25 @@ snakeTrail.push ({x: snakeX, y: snakeY});
 while (snakeTrail.length > tailSize){
     snakeTrail.shift();
 }
+}
+// input
+function keyDownEvent(e){
+    switch (e.keyCode){
+    case 37:
+        nextX = -1;
+        nextY = 0;
+        break;
+    case 38:
+        nextX = 0;
+        nextY = -1;
+        break;
+    case 39:
+        nextX = 1;
+        nextY = 0;
+        break;
+    case 40:
+        nextX = 0;
+        nextY = 1;
+        break;    
+    }
 }
