@@ -80,7 +80,7 @@ for (var i = 0 ; i < snakeTrail.length; i++){
 
 // Paint apple 
 gameArea.fillStyle = "red";
-gameArea.fillRect(appleX * tileSize, appley * tileSize, tileSize, tileSize);
+gameArea.fillRect(appleX * tileSize, appleY * tileSize, tileSize, tileSize);
 
 
 
