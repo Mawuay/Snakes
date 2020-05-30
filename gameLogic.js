@@ -20,7 +20,7 @@ var snakeX = snakeY = 10;
 
 
 // Game world 
-var gridSize = tileSize = 22; // 30 x 30 tiles == 900
+var gridSize = tileSize = 20; // 30 x 30 tiles == 900
 var nextX = nextY = 0; // Initilizes the next x and Y posisitons of the snake 
 
 
