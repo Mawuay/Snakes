@@ -1,4 +1,4 @@
-var canvas, gameArea;
+var canvas, gameArea, score, highScore;
 
 window.onload = function() {
     canvas = document.getElementById("canvas");
@@ -51,6 +51,7 @@ function draw(){
     // Eating the apple 
     if (snakeX == appleX && snakeY == appleY){
         tailSize++;
+        score++;
         appleX = Math.floor(Math.random()* gridSize);
         appleY = Math.floor(Math.random()* gridSize);
         
@@ -75,6 +76,7 @@ function draw(){
         // What happens when the snale bites its tail 
         if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY){
             tailSize = defaultTailSize;
+            score = 0;
         }
     }
 
@@ -111,4 +113,10 @@ function keyDownEvent(e){
         nextY = 1;
         break;    
     }
+}
+
+// text output
+function displayScore(){
+    // Displays the current score of the game  
+    consolelog.(score)
 }
