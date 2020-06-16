@@ -5,6 +5,7 @@ window.onload = function() {
     gameArea = canvas.getContext("2d");
 
     document.addEventListener("keydown", keyDownEvent);
+    document.displayScore();
 
     // Render this animation X frames per second
     var frameRate = 14;
