@@ -1,4 +1,4 @@
-var canvas, gameArea, score, highScore;
+var canvas, gameArea;
 
 window.onload = function() {
     canvas = document.getElementById("canvas");
@@ -22,6 +22,8 @@ var snakeX = snakeY = 10;
 // Game world 
 var gridSize = tileSize = 25; // 25 x 25 tiles == 900
 var nextX = nextY = 0; // Initilizes the next x and Y posisitons of the snake 
+var score = 0; 
+// var highScore = localStorage.getItem();
 
 
 // Apple 
@@ -118,5 +120,5 @@ function keyDownEvent(e){
 // text output
 function displayScore(){
     // Displays the current score of the game  
-    consolelog.(score)
+    consolelog.(score);
 }
