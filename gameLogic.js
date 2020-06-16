@@ -121,5 +121,5 @@ function keyDownEvent(e){
 // text output
 function displayScore(){
     // Displays the current score of the game  
-    consolelog.(score);
+    console.log(score);
 }
