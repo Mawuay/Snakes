@@ -6,3 +6,21 @@
     src: url('fonts/digital-7.ttf');
 
 }
+
+html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3,h4{
+    font-family: 'digital-7';
+    font-weight: normal;
+    font-style: normal;
+    
+  }
+  .footer {
+    flex-shrink: 0;
+  }
