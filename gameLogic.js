@@ -5,7 +5,7 @@ window.onload = function() {
     gameArea = canvas.getContext("2d");
 
     document.addEventListener("keydown", keyDownEvent);
-    document.displayScore();
+    
 
     // Render this animation X frames per second
     var frameRate = 14;
@@ -21,10 +21,10 @@ var snakeX = snakeY = 10;
 
 
 // Game world 
-var gridSize = tileSize = 25; // 25 x 25 tiles == 900
-var nextX = nextY = 0; // Initilizes the next x and Y posisitons of the snake 
+var gridSize = tileSize = 25; // 25 x 25 tiles == 625
+var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
-// var highScore = localStorage.getItem();
+var highScore = localStorage.getItem("HighScore");
 
 
 // Apple 
@@ -67,7 +67,7 @@ function draw(){
 
 
     // Paint the snake 
-    gameArea.fillStyle = "yellow";
+    gameArea.fillStyle = "green";
     for (var i = 0 ; i < snakeTrail.length; i++){
         gameArea.fillRect(
             snakeTrail[i].x * tileSize,
@@ -76,10 +76,11 @@ function draw(){
             tileSize
         );
 
-        // What happens when the snale bites its tail 
+        // What happens when the snake bites its tail 
         if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY){
             tailSize = defaultTailSize;
             score = 0;
+            displayGameover();
         }
     }
 
@@ -93,6 +94,14 @@ function draw(){
     snakeTrail.push ({x: snakeX, y: snakeY});
     while (snakeTrail.length > tailSize){
         snakeTrail.shift();
+    }
+
+    displayScore();
+
+    // Updates the  local storage with the new high score
+    if (score > highScore){
+        localStorage.clear("HighScore");
+        localStorage.setItem("HighScore", String(score));
     }
 }
 
@@ -122,4 +131,30 @@ function keyDownEvent(e){
 function displayScore(){
     // Displays the current score of the game  
     console.log(score);
+    gameArea.font = '20px digital-7';
+    gameArea.fillStyle = "white";
+    gameArea.fillText("Score : " + String(score), 50,50);
+    gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
+
 }
+
+
+function displayGameover(){
+    // Displays the game over screen once the once the snake bites its tail.
+    // game over display 
+    gameArea.font = '72px digital-7';
+    gameArea.fillStyle="white";
+    gameArea.fillText("GameOver", 185,312);
+
+}
+
+// var timer = setInterval(function(){
+//     clearScreen();
+//     ctx.fillText(test1[i], 150, 91);
+//     i++; 
+//     if(i >= test1.length) {
+//         clearInterval(timer);
+//     }
+// }, 200);
+
+// timer();
