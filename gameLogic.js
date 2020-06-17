@@ -148,13 +148,3 @@ function displayGameover(){
 
 }
 
-// var timer = setInterval(function(){
-//     clearScreen();
-//     ctx.fillText(test1[i], 150, 91);
-//     i++; 
-//     if(i >= test1.length) {
-//         clearInterval(timer);
-//     }
-// }, 200);
-
-// timer();
