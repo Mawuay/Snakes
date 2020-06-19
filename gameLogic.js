@@ -25,6 +25,9 @@ var gridSize = tileSize = 25; // 25 x 25 tiles == 625
 var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
 var highScore = localStorage.getItem("HighScore");
+if (highScore == "NULL") {
+    highScore = 0;
+}
 // var highScoreInt = int(highScore);
 
 // Apple 
