@@ -8,7 +8,7 @@ window.onload = function() {
     
 
     // Render this animation X frames per second
-    var frameRate = 14;
+    var frameRate = 13;
     setInterval(draw, 1000/ frameRate); 
 };
 
