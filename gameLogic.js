@@ -24,7 +24,16 @@ var snakeX = snakeY = 10;
 var gridSize = tileSize = 25; // 25 x 25 tiles == 625
 var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
-var highScore = localStorage.getItem("HighScore");
+
+
+// Check for the presence of a Highscore var in local storage
+if (localStorage.getItem("HighScore") !== null) {
+    var highScore = localStorage.getItem("HighScore");
+}else {
+    localStorage.setItem("HighScore", score);
+    var highScore = localStorage.getItem("HighScore");
+}
+
 
 
 
