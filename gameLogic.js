@@ -25,7 +25,7 @@ var gridSize = tileSize = 25; // 25 x 25 tiles == 625
 var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
 var highScore = localStorage.getItem("HighScore");
-
+// var highScoreInt = int(highScore);
 
 // Apple 
 var appleX = (appleY = 15);
@@ -55,10 +55,18 @@ function draw(){
     if (snakeX == appleX && snakeY == appleY){
         tailSize++;
         score++;
+        // Updates the  local storage with the new high score
+        if (parseInt(score,10) > parseInt(highScore,10)){
+            // localStorage.clear("HighScore");
+            localStorage.setItem("HighScore", score);
+            // score = 0;
+        }
         appleX = Math.floor(Math.random()* gridSize);
         appleY = Math.floor(Math.random()* gridSize);
         
     }
+                
+
 
     // Paint background 
     gameArea.fillStyle = "black";
@@ -79,8 +87,19 @@ function draw(){
         // What happens when the snake bites its tail 
         if (snakeTrail[i].x == snakeX && snakeTrail[i].y == snakeY){
             tailSize = defaultTailSize;
-            score = 0;
-            displayGameover();
+
+            // Updates the  local storage with the new high score
+            if (parseInt(score,10) > parseInt(highScore,10)){
+                // localStorage.clear("HighScore");
+                localStorage.setItem("HighScore", score);
+                score = 0;
+            }else{
+                score = 0;
+                // break;
+            }
+
+            console.log("GameOver :(");
+            // displayGameover();
         }
     }
 
@@ -97,12 +116,20 @@ function draw(){
     }
 
     displayScore();
+    // console.log(score);
+    // gameArea.font = '20px digital-7';
+    // gameArea.fillStyle = "white";
+    // gameArea.fillText("Score : " + String(score), 50,50);
+    // gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
 
-    // Updates the  local storage with the new high score
-    if (score > highScore){
-        localStorage.clear("HighScore");
-        localStorage.setItem("HighScore", String(score));
-    }
+    // // Updates the  local storage with the new high score
+    // if (parseInt(score,10) > parseInt(highScore,10)){
+    //     // localStorage.clear("HighScore");
+        
+    //     localStorage.setItem("HighScore", score);
+    // }else{
+    //     // break;
+    // }
 }
 
 // input
