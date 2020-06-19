@@ -26,7 +26,7 @@ var nextX = nextY = 0; // Initializes the next x and Y positions of the snake
 var score = 0; 
 var highScore = localStorage.getItem("HighScore");
 if (highScore == "NULL") {
-    highScore = 0;
+    localStorage.setItem("HighScore", score);
 }
 // var highScoreInt = int(highScore);
 
