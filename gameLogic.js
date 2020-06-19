@@ -25,9 +25,7 @@ var gridSize = tileSize = 25; // 25 x 25 tiles == 625
 var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
 var highScore = localStorage.getItem("HighScore");
-if (highScore == "NULL") {
-    localStorage.setItem("HighScore", score);
-}
+
 // var highScoreInt = int(highScore);
 
 // Apple 
@@ -164,6 +162,8 @@ function displayScore(){
     gameArea.font = '20px digital-7';
     gameArea.fillStyle = "white";
     gameArea.fillText("Score : " + String(score), 50,50);
+    if (highScore == NULL) {
+    localStorage.setItem("HighScore", score);
     gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
 
 }
