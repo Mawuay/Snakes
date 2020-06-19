@@ -163,7 +163,8 @@ function displayScore(){
     gameArea.fillStyle = "white";
     gameArea.fillText("Score : " + String(score), 50,50);
     if (highScore == NULL) {
-    localStorage.setItem("HighScore", score);
+        localStorage.setItem("HighScore", score);
+    }
     gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
 
 }
