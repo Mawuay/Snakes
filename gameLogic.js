@@ -24,21 +24,9 @@ var snakeX = snakeY = 10;
 var gridSize = tileSize = 25; // 25 x 25 tiles == 625
 var nextX = nextY = 0; // Initializes the next x and Y positions of the snake 
 var score = 0; 
+var highScore = localStorage.getItem("HighScore");
 
 
-try {
-  localStorage.setItem("HighScore");
-}
-catch(err) {
-  break;
-}
-finally {
-  var highScore = localStorage.getItem("HighScore");
-}
-    
-
-
-// var highScoreInt = int(highScore);
 
 // Apple 
 var appleX = (appleY = 15);
@@ -70,7 +58,7 @@ function draw(){
         score++;
         // Updates the  local storage with the new high score
         if (parseInt(score,10) > parseInt(highScore,10)){
-            // localStorage.clear("HighScore");
+            localStorage.clear("HighScore");
             localStorage.setItem("HighScore", score);
             // score = 0;
         }
@@ -103,7 +91,7 @@ function draw(){
 
             // Updates the  local storage with the new high score
             if (parseInt(score,10) > parseInt(highScore,10)){
-                // localStorage.clear("HighScore");
+                localStorage.clear("HighScore");
                 localStorage.setItem("HighScore", score);
                 score = 0;
             }else{
@@ -129,20 +117,7 @@ function draw(){
     }
 
     displayScore();
-    // console.log(score);
-    // gameArea.font = '20px digital-7';
-    // gameArea.fillStyle = "white";
-    // gameArea.fillText("Score : " + String(score), 50,50);
-    // gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
-
-    // // Updates the  local storage with the new high score
-    // if (parseInt(score,10) > parseInt(highScore,10)){
-    //     // localStorage.clear("HighScore");
-        
-    //     localStorage.setItem("HighScore", score);
-    // }else{
-    //     // break;
-    // }
+   
 }
 
 // input
@@ -174,7 +149,7 @@ function displayScore(){
     gameArea.font = '20px digital-7';
     gameArea.fillStyle = "white";
     gameArea.fillText("Score : " + String(score), 50,50);
-    if (highScore == NULL) {
+    if (highScore == "") {
         localStorage.setItem("HighScore", score);
     }
     gameArea.fillText("Highscore : " + localStorage.getItem("HighScore"), 475, 50 );
